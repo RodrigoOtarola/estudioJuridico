@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+*{
+    font-family: 'Montserrat', sans-serif;
+}
+body{
+    background-image: url("/img/back3.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+    /*opacity: 0.8;*/
+    display: flex;
+    min-height: auto;
+    flex-direction: column;
+    color: black;
+}
+footer{
+    font-size: 15px;
+    flex: 1 0 auto;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    height: 5vh;
+}
