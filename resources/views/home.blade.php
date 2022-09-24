@@ -2,11 +2,11 @@
 
 @section('title','Incio')
 
-@section('container')
+@section('content')
     <br>
-    <div class="container section white">
+    <div class="container section">
         <div class="row">
-            <div class="col s12 m-6 l-6 xl-6">
+            <div class="col s12 m12 l12 x12">
                 <!--Para crear imagenes deslizantes-->
                 <div class="slider">
                     <ul class="slides">

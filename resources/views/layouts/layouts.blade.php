@@ -18,13 +18,28 @@
 <body>
 @include('partials.nav')
 
-@yield('container')
+@yield('content')
 
 <footer class="footer blue lighten-5">
     <div class="footer-copyright">
         <div class="container">
-           Rodrigo Otárola © {{date('Y')}}
-            <a class="black-text text-lighten-4 right" href="#">Acá van los iconos de RRSS</a>
+            <div class="row">
+                <div class="col s12 m6 l6 xl6 center">
+                    By Rodrigo Otárola © {{date('Y')}}
+                </div>
+                <div class="col s12 m6 l6 xl6 center">
+                    <span>Buscanos en nuestras RR.SS:</span>
+                    <a class="" href="#">
+                        <img src="/img/facebook.png" alt="25" width="20">
+                    </a>
+                    <a class="" href="#">
+                        <img src="/img/instagram.png" alt="25" width="20">
+                    </a>
+                    <a class="center" href="https://www.google.cl">
+                        <img src="/img/wsp.png" alt="25" width="20">
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 </footer>
