@@ -6,11 +6,12 @@
         <div class="row">
             <div class="col s12 m12 l12 xl12">
                 <div class="col s12 m12 l12 xl12">
-                    <div class="col s6 m6 l6 xl6 black-text left">{{ __('Iniciar Sesión') }}</div>
+                    <div class="col s6 m6 l6 xl6 black-text left">
+                        <h5>Iniciar Sesión</h5>
+                    </div>
                     <div class="right">
                         <a href="{{route('register')}}">
-                            <button class="btn blue">Registrate
-                            </button>
+                            <button class="btn blue">Registrate</button>
                         </a>
                     </div>
                 </div>

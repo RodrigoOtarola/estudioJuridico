@@ -3,5 +3,42 @@
 @section('title', 'Documentacion')
 
 @section('content')
-    <h2>Acá van badges de info de leyes nuevas, indicadores economicos, etc</h2>
+    <div class="container section">
+        <div class="card-panel">
+            <h5>Documentación importante:</h5>
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        <i class="material-icons">list_alt</i>
+                        Ultimas leyes publicadas
+                        <span class="badge"></span>
+                    </div>
+                    <div class="collapsible-body white">
+                        <p>API de la bibliteca del congreso.</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="collapsible-header">
+                        <i class="material-icons">list_alt</i>
+                        Indicadores economicos.
+                        <span class="badge"></span>
+                    </div>
+                    <div class="collapsible-body white">
+                        <p>Selecciona el indicador:</p>
+                        <p>API de CMF</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="collapsible-header">
+                        <i class="material-icons">list_alt</i>
+                        Feriados en chile.
+                        <span class="badge"></span>
+                    </div>
+                    <div class="collapsible-body white">
+                        <p>API de feriados</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
 @endsection

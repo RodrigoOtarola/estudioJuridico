@@ -17,12 +17,16 @@ Route::view('/','home')->name('home');
 
 Route::view('/nosotros','about')->name('about');
 
-Route::view('/equipo','team')->name('team');
-
 Route::view('/documentacion','documentation')->name('documentation');
 
 Route::view('/contacto','contact')->name('contact');
 
+Route::resource('messages','\App\Http\Controllers\MessagesController');
+
+Route::resource('team','\App\Http\Controllers\TeamController');
+
 Auth::routes();
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('login');
+
+Route::get('/logout',[\App\Http\Controllers\Auth\LoginController::class,'logout'])->name('logout');
