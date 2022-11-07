@@ -2,18 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Team;
 use Illuminate\Http\Request;
 
-class TeamController extends Controller
+class CausasController extends Controller
 {
-    public function __construct()
-    {
-        //Pedira login a exception de index y show
-        $this->middleware('auth')->except('index', 'show');
-    }
-
-
     /**
      * Display a listing of the resource.
      *
@@ -21,9 +13,7 @@ class TeamController extends Controller
      */
     public function index()
     {
-        $Team = Team::all();
-        return view('Team.index')->with('teams',$Team);
-
+        return view('causas.index');
     }
 
     /**
@@ -33,7 +23,7 @@ class TeamController extends Controller
      */
     public function create()
     {
-        return view('Team.create');
+        //
     }
 
     /**
@@ -45,9 +35,6 @@ class TeamController extends Controller
     public function store(Request $request)
     {
         //
-        $Team = Team::create($request->all());
-
-        return redirect()->route('team.index');
     }
 
     /**

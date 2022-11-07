@@ -12,7 +12,7 @@
             <li><a href="{{route('contact')}}" class="black-text">Contacto</a></li>
 
             @auth()
-                <li><a href="#" class="dropdown-trigger black-text" data-target="id_drop">Administrador<i
+                <li><a href="#" class="dropdown-trigger black-text" data-target="id_drop">{{auth()->user()->name}}<i
                             class="material-icons right">arrow_drop_down</i></a>
                 </li>
                 </li>
@@ -28,7 +28,7 @@
 <ul id="id_drop" class="dropdown-content">
     <li><a href="{{route('messages.index')}}" class="black-text">Mensajes</a></li>
     <li class="divider"></li>
-    <li><a href="{{route('messages.index')}}" class="black-text">Causas</a></li>
+    <li><a href="{{route('causas.index')}}" class="black-text">Causas</a></li>
     <li class="divider" class="black-text"></li>
     <li><a class="black-text" href="#"
            onclick="event.preventDefault();

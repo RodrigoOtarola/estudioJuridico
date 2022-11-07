@@ -12,7 +12,7 @@
                     <ul class="slides">
                         <li>
                             <img
-                                src="https://images.pexels.com/photos/4502161/pexels-photo-4502161.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                                src="https://images.pexels.com/photos/2041540/pexels-photo-2041540.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                                 alt="">
                             <div class="caption center-align">
                                 <h3>Lorem, ipsum dolor.</h3>
@@ -22,7 +22,7 @@
                         </li>
                         <li>
                             <img
-                                src="https://images.pexels.com/photos/11160230/pexels-photo-11160230.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                                src="https://images.pexels.com/photos/2393789/pexels-photo-2393789.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                                 alt="">
                             <div class="caption center-align">
                                 <h3>Lorem, ipsum dolor.</h3>
@@ -32,7 +32,7 @@
                         </li>
                         <li>
                             <img
-                                src="https://images.pexels.com/photos/8685551/pexels-photo-8685551.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                                src="https://images.pexels.com/photos/5669602/pexels-photo-5669602.jpeg?auto=compress&cs=tinysrgb&w=600"
                                 alt="">
                             <div class="caption center-align">
                                 <h3>Lorem, ipsum dolor.</h3>

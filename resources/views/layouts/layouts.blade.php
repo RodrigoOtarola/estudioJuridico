@@ -20,28 +20,53 @@
 
 @yield('content')
 
+{{--<footer class="footer blue lighten-5">--}}
+{{--    <div class="footer-copyright">--}}
+{{--        <div class="row">--}}
+{{--            <div class="col s12 m6 l6 xl6 center">--}}
+{{--                <span>By Rodrigo Otárola © {{date('Y')}}</span>--}}
+{{--            </div>--}}
+{{--            <div class="col s12 m6 l6 xl6 center">--}}
+{{--                <span>Nuestras redes sociales:</span>--}}
+{{--                <a class="" href="#">--}}
+{{--                    <img src="/img/facebook.png" alt="25" width="20">--}}
+{{--                </a>--}}
+{{--                <a class="" href="#">--}}
+{{--                    <img src="/img/instagram.png" alt="25" width="20">--}}
+{{--                </a>--}}
+{{--                <a class="center" href="https://www.google.cl">--}}
+{{--                    <img src="/img/wsp.png" alt="25" width="20">--}}
+{{--                </a>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+{{--</footer>--}}
 <footer class="footer blue lighten-5">
     <div class="footer-copyright">
-        <div class="container">
-            <div class="row">
-                <div class="col s12 m6 l6 xl6 center">
-                    By Rodrigo Otárola © {{date('Y')}}
-                </div>
-                <div class="col s12 m6 l6 xl6 center">
-                    <span>Buscanos en nuestras RR.SS:</span>
-                    <a class="" href="#">
-                        <img src="/img/facebook.png" alt="25" width="20">
-                    </a>
-                    <a class="" href="#">
-                        <img src="/img/instagram.png" alt="25" width="20">
-                    </a>
-                    <a class="center" href="https://www.google.cl">
-                        <img src="/img/wsp.png" alt="25" width="20">
-                    </a>
-                </div>
+        <div class="row">
+            <div class="col s12 m6 l6 xl6 center">
+                By Rodrigo Otárola © {{date('Y')}}
+            </div>
+            <div class="col s12 m6 l6 xl6 center">
+                Nuestras redes sociales:
+
+                <a class="" href="#">
+                    <img src="/img/facebook.png" alt="25" width="20">
+                </a>
+
+                <a class="" href="#">
+                    <img src="/img/instagram.png" alt="25" width="20">
+                </a>
+
+                <a class="center" href="https://www.google.cl">
+                    <img src="/img/wsp.png" alt="25" width="20">
+                </a>
+
             </div>
         </div>
     </div>
+    </div>
 </footer>
+
 </body>
 </html>

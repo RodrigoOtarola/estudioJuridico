@@ -25,6 +25,8 @@ Route::resource('messages','\App\Http\Controllers\MessagesController');
 
 Route::resource('team','\App\Http\Controllers\TeamController');
 
+Route::resource('causas','\App\Http\Controllers\CausasController');
+
 Auth::routes();
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('login');

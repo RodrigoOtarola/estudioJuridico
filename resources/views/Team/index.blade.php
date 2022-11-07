@@ -29,61 +29,7 @@
                             <p><a href="#">Acerca de el..</a></p>
                         </div>
                         <div class="card-reveal">
-                                <span class="card-title grey-text text-darken-4">Card Title<i
-                                        class="material-icons right">close</i></span>
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium sapiente minima
-                                sequi cupiditate at voluptatem.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col s12 m4 l4 xl3">
-                    <div class="card small">
-                        <div class="card-image waves-effect waves-light">
-                            <img src="/img/persona.jpg" alt="">
-                        </div>
-                        <div class="card-content">
-                            <span class="card-title activator">Juan Lorca R.<i
-                                    class="material-icons right">more_vert</i></span>
-                            <p><a href="#">Acerca de el..</a></p>
-                        </div>
-                        <div class="card-reveal">
-                                <span class="card-title grey-text text-darken-4">Card Title<i
-                                        class="material-icons right">close</i></span>
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium sapiente minima
-                                sequi cupiditate at voluptatem.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col s12 m4 l4 xl3">
-                    <div class="card small">
-                        <div class="card-image waves-effect waves-light">
-                            <img src="/img/persona.jpg" alt="">
-                        </div>
-                        <div class="card-content">
-                            <span class="card-title activator">Juan Lorca R.<i
-                                    class="material-icons right">more_vert</i></span>
-                            <p><a href="#">Acerca de el..</a></p>
-                        </div>
-                        <div class="card-reveal">
-                                <span class="card-title grey-text text-darken-4">Card Title<i
-                                        class="material-icons right">close</i></span>
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium sapiente minima
-                                sequi cupiditate at voluptatem.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col s12 m4 l4 xl3">
-                    <div class="card small">
-                        <div class="card-image waves-effect waves-light">
-                            <img src="/img/persona.jpg" alt="">
-                        </div>
-                        <div class="card-content">
-                            <span class="card-title activator">Juan Lorca R.<i
-                                    class="material-icons right">more_vert</i></span>
-                            <p><a href="#">Acerca de el..</a></p>
-                        </div>
-                        <div class="card-reveal">
-                                <span class="card-title grey-text text-darken-4">Card Title<i
+                                <span class="card-title grey-text text-darken-4">Reseña:<i
                                         class="material-icons right">close</i></span>
                             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium sapiente minima
                                 sequi cupiditate at voluptatem.</p>
