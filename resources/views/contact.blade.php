@@ -7,34 +7,35 @@
         <div class="row card-panel">
             <h5>Formulario de contacto:</h5>
             <div class="divider"></div>
-            <form action="POST" autocomplete="off">
+            <form action="{{route('messages.store')}}" method="post" autocomplete="off">
                 @csrf
                 <div class="input-field col s12 m6 l6 xl6">
-                    <input type="text" id="nombre" name="nombre" class="validate" required>
+                    <input type="text" id="name" name="name" class="validate" required>
                     <label for="name">Nombre:</label>
                 </div>
                 <div class="input-field col s12 m6 l6 xl6">
-                    <input type="text" id="apellido" name="apellido" class="validate" required>
-                    <label for="apellido">Apellido:</label>
+                    <input type="text" id="first_name" name="first_name" class="validate" required>
+                    <label for="first_name">Apellido:</label>
                 </div>
                 <div class="input-field col s12 m6 m6 l6 xl6">
                     <input type="email" id="email" name="email" class="validate" required>
                     <label for="email">E-mail:</label>
                 </div>
                 <div class="input-field col s12 m6 m6 l6 xl6">
-                    <input type="number" id="fono" name="fono" class="validate" required min="0" minlength="9" maxlength="9">
-                    <label for="fono">Fono:</label>
+                    <input type="number" id="phone" name="phone" class="validate" required min="0" minlength="9"
+                           maxlength="9">
+                    <label for="phone">Fono:</label>
                 </div>
                 <div class="input-field col s12 m6 m6 m6 l6 xl6">
-                    <input type="text" id="asunto" name="asunto" class="validate" required>
-                    <label for="Asunto">Asunto:</label>
+                    <input type="text" id="subject" name="subject" class="validate" required>
+                    <label for="subject">Asunto:</label>
                 </div>
                 <div class="input-field col s12 m12 l12 xl12">
-                    <textarea id="textarea" name="comentario" class="materialize-textarea"></textarea>
-                    <label for="Comentario">Comentario:</label>
+                    <textarea id="content" name="content" class="materialize-textarea"></textarea>
+                    <label for="content">Comentario:</label>
                 </div>
                 <div class="col s12 m6 l6 xl6">
-                    <buttton class="btn">Enviar</buttton>
+                    <button class="btn" type="submit">Enviar</button>
                 </div>
             </form>
         </div>

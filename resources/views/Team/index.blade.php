@@ -37,12 +37,11 @@
                             @auth()
                                 <div class="card-action">
                                     <a href="{{route('team.edit',$team->id)}}" class="btn-small yellow">Editar</a>
-                                    <form action="{{route('team.destroy',$team->id)}}" method="post" style="display:inline">
+                                    <form action="{{route('team.destroy',$team->id)}}" method="post" style="display:inline" class="confirm-eliminar">
                                         @csrf
                                         @method('DELETE')
                                         <button class="btn-small red" type="submit">Eliminar</button>
                                     </form>
-
                                 </div>
                             @endauth
                         </div>
@@ -53,4 +52,37 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('js')
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    @if(session('eliminar') == 'ok')
+        <script>
+            Swal.fire(
+                'Eliminar!',
+                'Registro eliminado con exito!',
+                'success'
+            )
+        </script>
+    @endif
+    <script>
+        $('.confirm-eliminar').submit(function (e) {
+            e.preventDefault();
+            Swal.fire({
+                title: '¿Seguro que deseas eliminar?',
+                text: "Esta acción es irreversible",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Eliminar',
+                cancelButtonText: "Cancelar"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    this.submit();
+                }
+            })
+        });
+    </script>
 @endsection

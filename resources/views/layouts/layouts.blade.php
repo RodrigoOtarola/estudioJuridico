@@ -20,6 +20,9 @@
 
 @yield('content')
 
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+@yield('js')
+
 {{--<footer class="footer blue lighten-5">--}}
 {{--    <div class="footer-copyright">--}}
 {{--        <div class="row">--}}
@@ -67,6 +70,5 @@
     </div>
     </div>
 </footer>
-
 </body>
 </html>

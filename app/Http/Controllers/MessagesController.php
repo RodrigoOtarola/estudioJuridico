@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\SaveMessageRequest;
+use App\Models\Messages;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class MessagesController extends Controller
 {
@@ -10,7 +13,7 @@ class MessagesController extends Controller
     public function __construct()
     {
         //Pedira login a exception de index y show
-        $this->middleware('auth');
+        $this->middleware('auth')->except('store');
     }
 
     /**
@@ -20,7 +23,9 @@ class MessagesController extends Controller
      */
     public function index()
     {
-        return view('Messages.index');
+        $messages = Messages::latest()->get();
+
+        return view('Messages.index',compact('messages'));
     }
 
     /**
@@ -31,6 +36,7 @@ class MessagesController extends Controller
     public function create()
     {
         //
+
     }
 
     /**
@@ -39,9 +45,22 @@ class MessagesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(SaveMessageRequest $request)
     {
         //
+        $messages = Messages::create($request->all());
+
+        //Responde correo entorno local
+        //Recibe 3 parametro vista, arreglo con la info a pasar y funcion anonima que recibre $message
+
+        Mail::send('emails.contact',['msg'=>$messages], function($m) use ($messages){
+
+            $m->to($messages->email, $messages->name)->subject('Mensaje recibido con exito');
+        });
+
+        //Rediccionar
+        return redirect()->route('contact')->with('info','Hemos recibido tu mensaje');
+
     }
 
     /**

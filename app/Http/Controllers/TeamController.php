@@ -23,7 +23,7 @@ class TeamController extends Controller
      */
     public function index()
     {
-        $teams = Team::all();
+        $teams = Team::latest()->get();
         return view('Team.index', compact('teams'));
 
     }
@@ -123,5 +123,10 @@ class TeamController extends Controller
     public function destroy($id)
     {
         //
+        $teams = Team::findOrFail($id);
+
+        $teams->delete();
+
+        return redirect()->route('team.index')->with('eliminar','ok');
     }
 }
