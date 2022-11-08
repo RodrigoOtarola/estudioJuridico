@@ -12,32 +12,45 @@
                 @auth()
                     <div class="right">
                         <a href="{{route('team.create')}}">
-                            <button class="btn blue">Crear profesional</button>
+                            <button class="btn blue">Crear</button>
                         </a>
                     </div>
                 @endauth
             </div>
             <div class="row">
-                <div class="col s12 m4 l4 xl3">
-                    <div class="card small">
-                        <div class="card-image waves-effect waves-light">
-                            <img src="/img/persona.jpg" alt="">
-                        </div>
-                        <div class="card-content">
-                            <span class="card-title activator">Juan Lorca R.<i
+                @forelse($teams as $team)
+                    <div class="col s12 m4 l4 xl3">
+                        <div class="card medium">
+                            <div class="card-image waves-effect waves-light">
+                                <img src="/storage/{{$team->image}}" alt="">
+                            </div>
+                            <div class="card-content">
+                            <span class="card-title activator">{{$team->name}} {{$team->first_name}}<i
                                     class="material-icons right">more_vert</i></span>
-                            <p><a href="#">Acerca de el..</a></p>
-                        </div>
-                        <div class="card-reveal">
+                                <p><a href="#">Acerca de el..</a></p>
+                            </div>
+                            <div class="card-reveal">
                                 <span class="card-title grey-text text-darken-4">Reseña:<i
                                         class="material-icons right">close</i></span>
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium sapiente minima
-                                sequi cupiditate at voluptatem.</p>
+                                <p>{{$team->description}}.</p>
+                            </div>
+                            @auth()
+                                <div class="card-action">
+                                    <a href="{{route('team.edit',$team->id)}}" class="btn-small yellow">Editar</a>
+                                    <form action="{{route('team.destroy',$team->id)}}" method="post" style="display:inline">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn-small red" type="submit">Eliminar</button>
+                                    </form>
+
+                                </div>
+                            @endauth
                         </div>
                     </div>
-                </div>
+                @empty
+                    <h5>No hay personal para mostrar.</h5>
+                @endforelse
             </div>
         </div>
-    </div>
     </div>
 @endsection
