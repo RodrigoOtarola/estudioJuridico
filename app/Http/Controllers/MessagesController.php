@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\SaveMessageRequest;
+use App\Models\Message;
 use App\Models\Messages;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -83,6 +84,11 @@ class MessagesController extends Controller
     public function edit($id)
     {
         //
+        $messages = Messages::findOrFail($id);
+
+
+
+        return view('Messages.edit', compact('messages'));
     }
 
     /**

@@ -18,17 +18,19 @@
                 </thead>
                 <tbody>
                 @forelse($messages as $message)
-                <tr>
-                    <td>{{$message->name}}</td>
-                    <td>{{$message->first_name}}</td>
-                    <td>{{$message->email}}</td>
-                    <td>{{$message->phone}}</td>
-                    <td>
-                        <a class="btn-floating btn-small waves-effect waves-light yellow"><i class="material-icons">edit</i></a>
+                    <tr>
+                        <td>{{$message->name}}</td>
+                        <td>{{$message->first_name}}</td>
+                        <td>{{$message->email}}</td>
+                        <td>{{$message->phone}}</td>
+                        <td>
+                            <a class="btn-floating btn-small waves-effect waves-light yellow"
+                               href="{{route('messages.edit',$message->id)}}"><i class="material-icons">edit</i></a>
 
-                        <a class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">delete</i></a>
-                    </td>
-                </tr>
+                            <button class="btn-floating btn-small waves-effect waves-light red"><i
+                                    class="material-icons">delete</i></button>
+                        </td>
+                    </tr>
                 @empty
                     <td colspan="5">No hay personal para mostrar.</td>
                 @endforelse

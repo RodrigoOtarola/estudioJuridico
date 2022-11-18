@@ -14,7 +14,13 @@
                         <span class="badge"></span>
                     </div>
                     <div class="collapsible-body white">
-                        <p>API de la bibliteca del congreso.</p>
+                        <ul class="collection">
+                            @foreach($registros as $ley)
+                                <li class="collection-item">
+                                    {{$ley['fecha_publicacion']}} - {{$ley['titulo']}} - {{$ley['organismo']}}
+                                </li>
+                            @endforeach
+                        </ul>
                     </div>
                 </li>
                 <li>
@@ -24,19 +30,12 @@
                         <span class="badge"></span>
                     </div>
                     <div class="collapsible-body white">
-                        <p>Selecciona el indicador:</p>
-                        <p>API de CMF</p>
+                        <p>Últimos 6 indicadores, haz click en solicitado:</p>
+                        @include('partials.indicadores')
                     </div>
                 </li>
                 <li>
-                    <div class="collapsible-header">
-                        <i class="material-icons">list_alt</i>
-                        Feriados en chile.
-                        <span class="badge"></span>
-                    </div>
-                    <div class="collapsible-body white">
-                        <p>API de feriados</p>
-                    </div>
+                    @include('partials.feriados')
                 </li>
             </ul>
         </div>

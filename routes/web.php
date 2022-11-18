@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,11 +14,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/','home')->name('home');
+//Route::view('/','home')->name('home');
+
+Route::get('/',[\App\Http\Controllers\HomeController::class,'index'])->name('home');
+
+Route::get('/noticias/listar',[\App\Http\Controllers\HomeController::class,'listarNoticias'])->name('listarNoticias');
+
+Route::resource('noticias','\App\Http\Controllers\HomeController');
+
+Route::resource('usuarios','\App\Http\Controllers\UsersController');
 
 Route::view('/nosotros','about')->name('about');
 
-Route::view('/documentacion','documentation')->name('documentation');
+//Route::view('/documentacion','documentation')->name('documentation');
+
+Route::get('/documentacion',[\App\Http\Controllers\DocumentationController::class,'leyes'])->name('documentation');
+
+//Route::get('/documentacion1+',[\App\Http\Controllers\DocumentationController::class|,'feriados'])->name('documentation');
 
 Route::view('/contacto','contact')->name('contact');
 

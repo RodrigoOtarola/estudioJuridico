@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Team extends Model
+class Estado_tramite extends Model
 {
-    protected $fillable=['image','name','first_name','description'];
-
     use HasFactory;
+
+    use SoftDeletes;
 }

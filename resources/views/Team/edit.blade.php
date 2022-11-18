@@ -35,6 +35,7 @@
                     <textarea id="description" name="description" class="materialize-textarea">{{old('description',$teams->description)}}</textarea>
                     <label for="description">Descripción:</label>
                 </div>
+
                 <div class="col s12 m6 l6 xl6">
                     <button class="btn blue" type="submit">Actualizar</button>
                     <a href="{{route('team.index')}}" class="btn red">Regresar</a>

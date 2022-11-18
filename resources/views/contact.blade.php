@@ -1,16 +1,16 @@
 @extends('layouts.layouts')
 
-@section('title','Contacto')
+@section('title','Contacto')0
 
 @section('content')
     <div class="container section">
+        @include('partials.validation-errors')
         <div class="row card-panel">
             <h5>Formulario de contacto:</h5>
             <div class="divider"></div>
             <form action="{{route('messages.store')}}" method="post" autocomplete="off">
                 @csrf
-                <div class="input-field col s12 m6 l6 xl6">
-                    <input type="text" id="name" name="name" class="validate" required>
+                <div class="input-field col s12 m6 l6 xl6">                    <input type="text" id="name" name="name" class="validate" required>
                     <label for="name">Nombre:</label>
                 </div>
                 <div class="input-field col s12 m6 l6 xl6">

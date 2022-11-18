@@ -24,6 +24,7 @@ class TeamController extends Controller
     public function index()
     {
         $teams = Team::latest()->get();
+
         return view('Team.index', compact('teams'));
 
     }
@@ -111,7 +112,6 @@ class TeamController extends Controller
         }
 
         return redirect()->route('team.index', $teams);
-            //->with('status', 'El proyecto fue actualizado con éxito.');
     }
 
     /**
@@ -124,6 +124,8 @@ class TeamController extends Controller
     {
         //
         $teams = Team::findOrFail($id);
+
+        Storage::delete($teams->image);
 
         $teams->delete();
 

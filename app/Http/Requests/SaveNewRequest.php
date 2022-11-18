@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class SaveTeamRequest extends FormRequest
+class SaveNewRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,11 +24,9 @@ class SaveTeamRequest extends FormRequest
     public function rules()
     {
         return [
-            //para subir png, jpeg, bmp, gif, svg o webp, con mime:jpeg,png se puede pasar los tipos de formato.
-            'image'=>[$this->route('team') ? 'nullable' : 'required','image','dimensions:min_width=300,height:300','max:2000'],
-            'name'=>['required','string'],
-            'first_name'=> ['required','string'],
-            'description'=>['required','string']
+            'img'=>[$this->route('noticia') ? 'nullable' : 'required','image','dimensions:min_width=500,height:300','max:2000'],
+            'title'=>['required','string'],
+            'content'=> 'required|max:400'
         ];
     }
 }

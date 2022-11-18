@@ -10,36 +10,29 @@
                 <!--Para crear imagenes deslizantes-->
                 <div class="slider">
                     <ul class="slides">
+                        @forelse($news as $new)
                         <li>
                             <img
-                                src="https://images.pexels.com/photos/2041540/pexels-photo-2041540.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                                src="/storage/{{$new->img}}"
                                 alt="">
                             <div class="caption center-align">
-                                <h3>Lorem, ipsum dolor.</h3>
-                                <h5 class="light">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus id
-                                    consectetur, voluptate quia cumque ut.</h5>
+                                <h3>{{$new->title}}.</h3>
+                                <h5 class="light">{{$new->content}}.</h5>
                             </div>
                         </li>
-                        <li>
-                            <img
-                                src="https://images.pexels.com/photos/2393789/pexels-photo-2393789.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                                alt="">
-                            <div class="caption center-align">
-                                <h3>Lorem, ipsum dolor.</h3>
-                                <h5 class="light">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus id
-                                    consectetur, voluptate quia cumque ut.</h5>
-                            </div>
-                        </li>
-                        <li>
-                            <img
-                                src="https://images.pexels.com/photos/5669602/pexels-photo-5669602.jpeg?auto=compress&cs=tinysrgb&w=600"
-                                alt="">
-                            <div class="caption center-align">
-                                <h3>Lorem, ipsum dolor.</h3>
-                                <h5 class="light">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus id
-                                    consectetur, voluptate quia cumque ut.</h5>
-                            </div>
-                        </li>
+                        @empty
+                            <h5>No hay noticias para mostrar</h5>
+                        @endforelse
+{{--                        <li>--}}
+{{--                            <img--}}
+{{--                                src="https://images.pexels.com/photos/2393789/pexels-photo-2393789.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"--}}
+{{--                                alt="">--}}
+{{--                            <div class="caption center-align">--}}
+{{--                                <h3>Lorem, ipsum dolor.</h3>--}}
+{{--                                <h5 class="light">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus id--}}
+{{--                                    consectetur, voluptate quia cumque ut.</h5>--}}
+{{--                            </div>--}}
+{{--                        </li>--}}
                     </ul>
                 </div>
             </div>

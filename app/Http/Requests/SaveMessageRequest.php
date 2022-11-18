@@ -24,12 +24,12 @@ class SaveMessageRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'=>'required',
-            'first_name'=>'required',
-            'email'=>'required|email',
-            'phone'=>'required',
-            'subject'=>'required',
-            'content'=>'required|min:3'
+            'name'=>['required','string'],
+            'first_name'=>['required','string'],
+            'email'=>['required','email'],
+            'phone'=>['required','number'],
+            'subject'=>['required','string'],
+            'content'=>['required|min:3','string']
         ];
     }
 }

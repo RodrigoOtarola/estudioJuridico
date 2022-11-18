@@ -7,10 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Mensaje recibido</title>
     <style>
-        *{
+        * {
             background-color: #F7F7F7
         }
-        .txt{
+
+        .txt {
             text-align: center;
         }
 
@@ -21,7 +22,6 @@
 <p class="txt">Gracias por querer comunicarte con nosotros, un asesor nuestro te contactara a la brevedad a tu correo
     otorgado {{$msg->email}} <br>
 </p>
-
 <h4 class="txt">Gracias.</h4>
 </body>
 </html>

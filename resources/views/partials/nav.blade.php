@@ -12,9 +12,9 @@
             <li><a href="{{route('contact')}}" class="black-text">Contacto</a></li>
 
             @auth()
-                <li><a href="#" class="dropdown-trigger black-text" data-target="id_drop">{{auth()->user()->name}}<i
+                <li>
+                    <a href="#" class="dropdown-trigger black-text" data-target="id_drop">{{auth()->user()->name}}<i
                             class="material-icons right">arrow_drop_down</i></a>
-                </li>
                 </li>
 
             @else
@@ -24,8 +24,12 @@
     </nav>
 </div>
 
-<!--Si se activa el menu droptown se desplegan estas celdas-->
+<!--Si esta logueado, se activa el menu droptown se desplegan estas celdas-->
 <ul id="id_drop" class="dropdown-content">
+    <li><a href="{{route('usuarios.index')}}" class="black-text">Usuarios</a></li>
+    <li class="divider"></li>
+    <li><a href="{{route('listarNoticias')}}" class="black-text">Noticias</a></li>
+    <li class="divider"></li>
     <li><a href="{{route('messages.index')}}" class="black-text">Mensajes</a></li>
     <li class="divider"></li>
     <li><a href="{{route('causas.index')}}" class="black-text">Causas</a></li>
@@ -47,9 +51,9 @@
     <li><a href="{{route('documentation')}}" class="black-text">Documentación</a></li>
     <li><a href="{{route('contact')}}" class="black-text">Contacto</a></li>
     <li><a href="{{route('login')}}" class="black-text">Login</a></li>
-{{--    <li><a href="#" class="dropdown-trigger" data-target="id_drop">Desplegable<i--}}
-{{--                    class="material-icons right">arrow_drop_down</i></a>--}}
-{{--    </li>--}}
+    {{--    <li><a href="#" class="dropdown-trigger" data-target="id_drop">Desplegable<i--}}
+    {{--                    class="material-icons right">arrow_drop_down</i></a>--}}
+    {{--    </li>--}}
     <li><a href="{{route('home')}}">Cerrar<i class="material-icons right">close</i></a></li>
 </ul>
 
