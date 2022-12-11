@@ -11,6 +11,7 @@
             <li><a href="{{route('documentation')}}" class="black-text">Documentación</a></li>
             <li><a href="{{route('contact')}}" class="black-text">Contacto</a></li>
 
+            {{--Sale login, sino nombre de perfil si esta logueado--}}
             @auth()
                 <li>
                     <a href="#" class="dropdown-trigger black-text" data-target="id_drop">{{auth()->user()->name}}<i
@@ -25,13 +26,17 @@
 </div>
 
 <!--Si esta logueado, se activa el menu droptown se desplegan estas celdas-->
+@auth()
 <ul id="id_drop" class="dropdown-content">
+    {{--Agrega menu según perfil--}}
+    @if(auth()->user()->hasRoles(['admin','superadmin']))
     <li><a href="{{route('usuarios.index')}}" class="black-text">Usuarios</a></li>
     <li class="divider"></li>
     <li><a href="{{route('listarNoticias')}}" class="black-text">Noticias</a></li>
     <li class="divider"></li>
     <li><a href="{{route('messages.index')}}" class="black-text">Mensajes</a></li>
     <li class="divider"></li>
+    @endif
     <li><a href="{{route('causas.index')}}" class="black-text">Causas</a></li>
     <li class="divider" class="black-text"></li>
     <li><a class="black-text" href="#"
@@ -43,14 +48,25 @@
     <li class="divider"></li>
     <li><a href="#" class="red-text"><i class="material-icons right">close</i>Cerrar</a></li>
 </ul>
-
+@endauth
 <!--Si pasamos a responsive se agrupa menu-->
 <ul class="sidenav" id="menu-responsive"><!--id tiene que tener el mismo nombre del data target-->
     <li><a href="{{route('about')}}" class="black-text">Nosotros</a></li>
     <li><a href="{{route('team.index')}}" class="black-text">Profesionales</a></li>
     <li><a href="{{route('documentation')}}" class="black-text">Documentación</a></li>
     <li><a href="{{route('contact')}}" class="black-text">Contacto</a></li>
-    <li><a href="{{route('login')}}" class="black-text">Login</a></li>
+
+    {{--Sale login, sino nombre de perfil si esta logueado
+    @auth()
+        <li>
+            <a href="#" class="dropdown-trigger black-text" data-target="id_drop">{{auth()->user()->name}}<i
+                    class="material-icons right">arrow_drop_down</i></a>
+        </li>
+
+    @else
+        <li><a class="black-text" href="{{route('login')}}">Login</a></li>
+    @endauth--}}
+
     {{--    <li><a href="#" class="dropdown-trigger" data-target="id_drop">Desplegable<i--}}
     {{--                    class="material-icons right">arrow_drop_down</i></a>--}}
     {{--    </li>--}}

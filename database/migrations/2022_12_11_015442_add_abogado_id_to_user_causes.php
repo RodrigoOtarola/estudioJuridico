@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUserCausesTable extends Migration
+class AddAbogadoIdToUserCauses extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,8 @@ class CreateUserCausesTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_causes', function (Blueprint $table) {
-            $table->integer('user_id')->unsigned();
-            $table->integer('cause_id')->unsigned();
+        Schema::table('user_causes', function (Blueprint $table) {
+            $table->integer('abogado_id')->after('user_id')->unsigned();
         });
     }
 
@@ -26,6 +25,8 @@ class CreateUserCausesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_causes');
+        Schema::table('user_causes', function (Blueprint $table) {
+            $table->dropColumn('abogado_id');
+        });
     }
 }

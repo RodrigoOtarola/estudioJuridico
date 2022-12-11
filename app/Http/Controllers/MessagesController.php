@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\SaveMessageRequest;
+use App\Http\Requests\UpdateMessagesRequest;
+use App\Models\Estado_tramite;
 use App\Models\Message;
 use App\Models\Messages;
 use Illuminate\Http\Request;
@@ -24,9 +26,12 @@ class MessagesController extends Controller
      */
     public function index()
     {
-        $messages = Messages::latest()->get();
+        //Relacion con tabla estado_tramites
+        $messages = Messages::with('estadoTramite')->where('estadoTramite_id','=',1)->latest()->get();
 
-        return view('Messages.index',compact('messages'));
+        $messagesVistos = Messages::with('estadoTramite')->where('estadoTramite_id','=',2)->paginate(5);
+
+        return view('Messages.index',compact('messages','messagesVistos'));
     }
 
     /**
@@ -81,14 +86,21 @@ class MessagesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Messages $messages,$id)
     {
         //
         $messages = Messages::findOrFail($id);
 
+        return view('Messages.edit',[
+            'messages'=>$messages,
+            'estadoTramite' =>Estado_tramite::pluck('estado','id')
+        ]);
 
+        /*$messages = Messages::findOrFail($id);
 
-        return view('Messages.edit', compact('messages'));
+        $status = Estado_tramite::all();
+
+        return view('Messages.edit', compact('messages','status'));*/
     }
 
     /**
@@ -98,9 +110,21 @@ class MessagesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateMessagesRequest $request, $id)
     {
         //
+        $messages = Messages::findOrFail($id);
+
+        //Solo permite actualizar estadoTramite_id.
+        $messages->update($request->only('estadoTramite_id'));
+
+        $messages->fill($request->validated());
+
+        $messages->save();
+
+        return redirect()->route('messages.index');
+
+
     }
 
     /**

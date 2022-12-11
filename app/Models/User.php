@@ -77,7 +77,23 @@ class User extends Authenticatable
         $this->attributes['password'] = bcrypt($password);
     }
 
+    //Verificar cargo Admin y superadmin
+    public function isAdmin(){
+        return $this->hasRoles(['admin','superadmin']);
+    }
+
     use SoftDeletes;
+
+    //Relacion con tabla causas
+
+    public function causa(){
+        return $this->hasOne(Causes::class,'user_id');
+    }
+
+    //Verificar cargo abogado
+    public function isAbogado(){
+        return $this->hasRoles(['abogado']);
+    }
 
     /*
      *

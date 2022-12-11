@@ -9,13 +9,14 @@
                 <div class="col s6 m6 l6 xl6 black-text left">
                     <h5>Nuestros Profesionales:</h5>
                 </div>
-                @auth()
+
+                @can('create',$newTeam)
                     <div class="right">
                         <a href="{{route('team.create')}}">
                             <button class="btn blue">Crear</button>
                         </a>
                     </div>
-                @endauth
+                @endcan
             </div>
             <div class="row">
                 @forelse($teams as $team)
@@ -36,12 +37,19 @@
                             </div>
                             @auth()
                                 <div class="card-action">
-                                    <a href="{{route('team.edit',$team->id)}}" class="btn-small yellow">Editar</a>
-                                    <form action="{{route('team.destroy',$team->id)}}" method="post" style="display:inline" class="confirm-eliminar">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button class="btn-small red" type="submit">Eliminar</button>
-                                    </form>
+                                    {{--Muestra boton editar solo para admin y superadmin--}}
+                                    @can('update',$team)
+                                        <a href="{{route('team.edit',$team->id)}}" class="btn-small yellow">Editar</a>
+                                    @endcan
+                                    {{--Muestra boton eliminar solo para admin y superadmin--}}
+                                    @can('delete',$team)
+                                        <form action="{{route('team.destroy',$team->id)}}" method="post"
+                                              style="display:inline" class="confirm-eliminar">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class="btn-small red" type="submit">Eliminar</button>
+                                        </form>
+                                    @endcan
                                 </div>
                             @endauth
                         </div>

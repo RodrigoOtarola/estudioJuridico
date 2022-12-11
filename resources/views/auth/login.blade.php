@@ -11,11 +11,11 @@
                         <div class="col s6 m6 l6 xl6 black-text left">
                             Iniciar Sesión
                         </div>
-                        <div class="right">
-                            <a href="{{route('register')}}">
-                                <button class="btn blue">Registrate</button>
-                            </a>
-                        </div>
+{{--                        <div class="right">--}}
+{{--                            <a href="{{route('register')}}">--}}
+{{--                                <button class="btn blue">Registrate</button>--}}
+{{--                            </a>--}}
+{{--                        </div>--}}
                     </div>
                     <div class="divider"></div>
                     <form method="POST" action="{{ route('login') }}">

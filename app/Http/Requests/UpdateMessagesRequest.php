@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class SaveMessageRequest extends FormRequest
+class UpdateMessagesRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,12 +24,8 @@ class SaveMessageRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'=>['required','string'],
-            'first_name'=>['required','string'],
-            'email'=>['required','email'],
-            'phone'=>'required',
-            'subject'=>['required','string'],
-            'content'=>'required|min:3'
+            //Actualizar solo el estado del tramite
+            'estadoTramite_id'=>'required',
         ];
     }
 }

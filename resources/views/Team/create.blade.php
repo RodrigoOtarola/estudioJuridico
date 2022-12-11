@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="container section">
-        <div class="card-panel">
+        <div class="row card-panel">
             <h5>Creación de personal:</h5>
             <form action="{{route('team.store')}}" method="post" autocomplete="off" enctype="multipart/form-data">
                 @csrf

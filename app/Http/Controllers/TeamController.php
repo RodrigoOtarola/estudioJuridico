@@ -23,9 +23,15 @@ class TeamController extends Controller
      */
     public function index()
     {
-        $teams = Team::latest()->get();
+        //$teams = Team::latest()->get();'deletedTeam'=>Team::onlyTrashed()->get()
 
-        return view('Team.index', compact('teams'));
+        return view('Team.index',[
+            'newTeam'=>new Team,
+            'teams'=>Team::latest()->get(),
+
+            ]);
+
+        //return view('Team.index', compact('teams'));
 
     }
 
@@ -36,6 +42,11 @@ class TeamController extends Controller
      */
     public function create()
     {
+
+        //Politica de acceso
+        $this->authorize('create', $teams = new Team);
+
+
         return view('Team.create');
     }
 
@@ -50,6 +61,9 @@ class TeamController extends Controller
         //
 
         $teams = new Team($request->validated());
+
+        //Politica de acceso
+        $this->authorize('create',$teams);
 
         //Mover imagen de directorio temporal a carpeta del server
         $teams->image = $request->file('image')->store('images');
@@ -77,11 +91,20 @@ class TeamController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Team $teams,$id)
     {
+        //Politica de acceso
+        $this->authorize('edit',$teams);
+
         $teams = Team::findOrFail($id);
 
-        return view('Team.edit', compact('teams'));
+        //
+        return view('Team.edit',[
+            'teams'=>$teams,
+        ]);
+
+
+        //return view('Team.edit', compact('teams'));
     }
 
     /**
@@ -91,8 +114,11 @@ class TeamController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update($id, SaveTeamRequest $request)
+    public function update($id, SaveTeamRequest $request, Team $teams)
     {
+        //Politica de acceso
+        $this->authorize('update',$teams);
+
         $teams = Team::findOrFail($id);
 
         if ($request->hasFile('image')) {
@@ -120,9 +146,11 @@ class TeamController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id,Team $teams)
     {
-        //
+        //Politica de acceso
+        $this->authorize('delete',$teams);
+
         $teams = Team::findOrFail($id);
 
         Storage::delete($teams->image);

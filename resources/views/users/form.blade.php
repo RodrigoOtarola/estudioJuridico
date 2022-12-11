@@ -34,7 +34,8 @@
                 {{--Genera automaticamente checkbox, segun cantidad de perfiles--}}
                 <input type="checkbox" class="filled-in" name="roles[]"
                        value="{{$id}}" {{$user->roles->pluck('id')->contains($id) ? 'checked' : ''}} />
-                <span>{{$name}}</span>
+                <span style="margin-right: 10px;
+    padding-left: 25px">{{$name}}</span>
             </label>
         @endforeach
     </p>

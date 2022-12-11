@@ -6,11 +6,12 @@
     <div class="container section">
         <div class="row card-panel">
             <h5>Ver mensaje:</h5>
-            <form action="{{route('messages.update', $messages->id)}}" method="post" autocomplete="off">
+            <form action="{{route('messages.update', $messages)}}" method="post" autocomplete="off">
                 @method('PUT')
                 @csrf
                 <div class="input-field col s12 m4 l4 xl4">
-                    <input type="text" id="name" name="name" class="validate" value="{{$messages->name}}" disabled>
+                    <input type="text" id="name" name="name" class="validate" value="{{$messages->name}}"
+                           disabled>
                     <label for="name">Nombre:</label>
                 </div>
                 <div class="input-field col s12 m4 l4 xl4">
@@ -19,7 +20,8 @@
                     <label for="first_name">Apellido:</label>
                 </div>
                 <div class="input-field col s12 m4 l4 xl4">
-                    <input type="email" id="email" name="email" class="validate" value="{{$messages->email}}" disabled>
+                    <input type="email" id="email" name="email" class="validate"
+                           value="{{$messages->email}}" disabled>
                     <label for="email">E-mail:</label>
                 </div>
                 <div class="input-field col s12 m4 l4 xl4">
@@ -28,7 +30,8 @@
                     <label for="phone">Fono:</label>
                 </div>
                 <div class="input-field col s12 m4 l4 xl4">
-                    <input type="text" id="subject" name="subject" class="validate" value="{{$messages->subject}}"
+                    <input type="text" id="subject" name="subject" class="validate"
+                           value="{{$messages->subject}}"
                            disabled>
                     <label for="subject">Asunto:</label>
                 </div>
@@ -38,10 +41,15 @@
                     <label for="content">Comentario:</label>
                 </div>
                 <div class="input-field col s12 m6 l6 xl6">
-                    <select>
-                        <option value="" disabled selected>Selecciona</option>
-                        <option value="1">Option 1</option>
-                        <option value="2">Option 2</option>
+                    <select name="estadoTramite_id">
+                        <option disabled selected>Selecciona</option>
+                        {{--$relacion se trae desde MessagesController--}}
+                        @foreach($estadoTramite as $id=>$name)
+                            <option value="{{$id}}"
+                                    @if($id == $messages->estadoTramite_id) selected @endif >
+                                {{$name}}
+                            </option>
+                        @endforeach
                     </select>
                     <label>Seleccionar estado</label>
                 </div>

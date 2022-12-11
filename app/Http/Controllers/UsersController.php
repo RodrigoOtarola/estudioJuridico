@@ -26,7 +26,7 @@ class UsersController extends Controller
     public function index()
     {
         //
-        $users = User::with(['roles'])->latest()->get();
+        $users = User::with(['roles'])->latest()->paginate();
 
         return view('users.index',compact('users'));
     }
@@ -52,6 +52,7 @@ class UsersController extends Controller
      */
     public function store(CreateUserRequest $request)
     {
+        //dd($request);
         //Para inserta nueva usuario, parametros por el request
         $user = User::create($request->all());
 
@@ -120,6 +121,6 @@ class UsersController extends Controller
 
         $user->delete();
 
-        return route('usuarios.index')->with('eliminar','ok');
+        return redirect()->route('usuarios.index')->with('eliminar','ok');
     }
 }

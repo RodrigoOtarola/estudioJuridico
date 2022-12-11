@@ -10,5 +10,9 @@ class Estado_tramite extends Model
 {
     use HasFactory;
 
-    use SoftDeletes;
+    public function message(){
+        return $this->hasMany(Estado_tramite::class);
+    }
+
+
 }
