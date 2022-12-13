@@ -11,7 +11,7 @@ class Tribunal extends Model
 
     //Relacion con tabla causas
     public function causa(){
-        return $this->hasOne(Causes::class);
+        return $this->hasOne(Causes::class,'tribunal_id');
 
     }
 

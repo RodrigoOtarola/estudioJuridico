@@ -40,6 +40,10 @@ Route::resource('team','\App\Http\Controllers\TeamController');
 
 Route::resource('causas','\App\Http\Controllers\CausasController');
 
+Route::get('/causas/{id}/crearComentario',[\App\Http\Controllers\CausasController::class,'crearComentario'])->name('crearComentario');
+
+Route::post('/guardarComentario',[\App\Http\Controllers\CausasController::class,'guardarComentario'])->name('guardarComentario');
+
 Auth::routes();
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('login');

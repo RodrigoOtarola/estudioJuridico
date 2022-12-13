@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddAbogadoIdToUserCauses extends Migration
+class CreateEstadoCausasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class AddAbogadoIdToUserCauses extends Migration
      */
     public function up()
     {
-        Schema::table('user_causes', function (Blueprint $table) {
-            $table->integer('abogado_id')->after('user_id')->unsigned();
+        Schema::create('estado_causas', function (Blueprint $table) {
+            $table->id();
+            $table->string('estado');
         });
     }
 
@@ -25,8 +26,6 @@ class AddAbogadoIdToUserCauses extends Migration
      */
     public function down()
     {
-        Schema::table('user_causes', function (Blueprint $table) {
-            $table->dropColumn('abogado_id');
-        });
+        Schema::dropIfExists('estado_causas');
     }
 }

@@ -9,7 +9,6 @@
                 <div class="col s6 m6 l6 xl6 black-text left">
                     <h5>Nuestros Profesionales:</h5>
                 </div>
-
                 @can('create',$newTeam)
                     <div class="right">
                         <a href="{{route('team.create')}}">
@@ -17,6 +16,7 @@
                         </a>
                     </div>
                 @endcan
+
             </div>
             <div class="row">
                 @forelse($teams as $team)

@@ -28,10 +28,7 @@ class TeamController extends Controller
         return view('Team.index',[
             'newTeam'=>new Team,
             'teams'=>Team::latest()->get(),
-
             ]);
-
-        //return view('Team.index', compact('teams'));
 
     }
 
